@@ -1,7 +1,14 @@
-<h1>New bookmark of <%= @list.name %></h1>
+<div class="banner d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(33,37,41,0.0),rgba(33,37,41,1)), url(https://res.cloudinary.com/fbzsaullo/image/upload/v1653852074/Interno_SalaCinema-2_ljpa8o.jpg); background-position: center;">
+  <div class="container text-center">
+    <h1>Create a Bookmark</h1>
+  </div>
+</div>
 
+<div class="container col-6 mt-5">
 <%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit %>
+  <%= f.input :movie_id, collection: Movie.all %>
+  <%= link_to "Back", list_path(@list), class: "btn btn-primary"%>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+</div>
