@@ -11,8 +11,50 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= yield %>
+    <div class="navbar navbar-dark bg-dark navbar-expand-sm navbar-lewagon">
+      <div class="container-fluid">
+        <%= link_to lists_path, class: "navbar-brand" do %>
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/184/184578.png" %>
+        <% end %>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <%# if user_signed_in? %>
+              <li class="nav-item active">
+                <%= link_to "Add list ", "/lists/new", class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Home", lists_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item dropdown">
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "Action", "#", class: "dropdown-item" %>
+                  <%= link_to "Another action", "#", class: "dropdown-item" %>
+                  <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </div>
+              </li>
+            <%# else %>
+              <!--li class="nav-item"-->
+                <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+              <!--/li-->
+            <%# end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%= yield %>
+
+    <div class="container footer mt-5">
+      <div class="footer-links">
+        <a href="https://github.com/fbzsaullo"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/fabrizio_saullo/"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/fabrizio_saullo"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/fabriziosaullo/"><i class="fab fa-linkedin"></i></a>
+      </div>
     </div>
   </body>
 </html>

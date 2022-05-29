@@ -10,18 +10,18 @@
 # List.create(name: 'Drama')
 # List.create(name: 'All time favourites')
 
-# require 'net/http'
-# require 'json'
+require 'net/http'
+require 'json'
 
-# response = Net::HTTP.get(URI('https://tmdb.lewagon.com/movie/top_rated'))
-# api_hash = JSON.parse(response)
-# results = api_hash['results']
+response = Net::HTTP.get(URI('https://tmdb.lewagon.com/movie/top_rated'))
+api_hash = JSON.parse(response)
+results = api_hash['results']
 
-# results.each do |movie|
-#   Movie.create(
-#     title: movie['title'],
-#     overview: movie['overview'],
-#     poster_url: "https://image.tmdb.org/t/p/original/#{movie['poster_path']}",
-#     rating: movie['vote_average']
-#   )
-# end
+results.each do |movie|
+  Movie.create(
+    title: movie['title'],
+    overview: movie['overview'],
+    poster_url: "https://image.tmdb.org/t/p/original/#{movie['poster_path']}",
+    rating: movie['vote_average']
+  )
+end
