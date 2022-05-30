@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<div class="container col-6 mt-5">
+<div class="container col-6 mt-5 mb-5 ">
 <%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.input :comment %>
   <%= f.input :movie_id, collection: Movie.all %>
